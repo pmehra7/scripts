@@ -3,7 +3,7 @@
 # This file is sourced when running various Spark programs.
 # Copy it as spark-env.sh and edit that to configure Spark for your site.
 
-# Options read when launching programs locally with 
+# Options read when launching programs locally with
 # ./bin/run-example or ./bin/spark-submit
 # - HADOOP_CONF_DIR, to point Spark towards Hadoop configuration files
 # - SPARK_LOCAL_IP, to set the IP address Spark binds to on this node
@@ -54,6 +54,7 @@
 ### Change the following to specify a real cluster's Master host
 ###
 export STANDALONE_SPARK_MASTER_HOST=`hostname`
+export SPARK_LOCAL_IP=`hostname`
 
 export SPARK_MASTER_IP=$STANDALONE_SPARK_MASTER_HOST
 
@@ -76,7 +77,7 @@ export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-/etc/hadoop/conf}
 
 if [[ -d $SPARK_HOME/python ]]
 then
-    for i in 
+    for i in
     do
         SPARK_DIST_CLASSPATH=${SPARK_DIST_CLASSPATH}:$i
     done
